@@ -1,36 +1,14 @@
-export {};
-
-declare global {
-  const __APP_INFO__: {
-    pkg: {
-      name: string;
-      version: string;
-      dependencies: Recordable<string>;
-      devDependencies: Recordable<string>;
-    };
-    lastBuildTime: string;
+/** Build app info of the project */
+declare const __APP_INFO__: {
+  lastBuildTime: string;
+  pkg: {
+    dependencies: Record<string, string>;
+    devDependencies: Record<string, string>;
+    name: string;
+    version: string;
   };
+};
 
-  /* Vite */
-  type Recordable<T = any> = Record<string, T>;
-
-  interface ImportMetaEnv extends ViteEnv {
-    __: unknown;
-  }
-
-  interface ViteEnv {
-    VITE_USER_NODE_ENV: 'development' | 'production' | 'test';
-    VITE_APP_TITLE: string;
-    VITE_PORT: number;
-    VITE_USE_MOCK: boolean;
-    VITE_OPEN: boolean;
-    VITE_REPORT: boolean;
-    VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'gzip,brotli' | 'none';
-    VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean;
-    VITE_DROP_CONSOLE: boolean;
-    VITE_PUBLIC_PATH: string;
-    VITE_API_URL: string;
-    VITE_PROXY: [string, string][];
-    VITE_USE_IMAGEMIN: boolean;
-  }
+interface ImportMeta {
+  readonly env: Env.ImportMeta;
 }

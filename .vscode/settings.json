@@ -1,26 +1,28 @@
 {
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
   "eslint.useFlatConfig": true,
-  "editor.formatOnSave": false,
   "eslint.validate": [
     "vue",
-    "html",
-    "css",
-    "scss",
+    "svelte",
+    "astro",
+    "yaml",
+    "toml",
     "json",
     "jsonc",
-    "yaml",
-    "yml",
-    "markdown"
+    "json5",
+    "markdown",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
   ],
-  "prettier.enable": false,
-
+  "prettier.enable": true,
+  "cSpell.words": ["unocss", "VITE"],
   "i18n-ally.displayLanguage": "zh-CN",
-  "i18n-ally.localesPaths": [
-    "src/locales/modules"
-  ],
+  "i18n-ally.localesPaths": ["src/locales/modules"],
   "i18n-ally.keystyle": "nested"
 }
