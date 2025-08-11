@@ -16,7 +16,7 @@
       "~root/*": ["./*"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "vite/client"],
+    "types": ["node"],
     "allowImportingTsExtensions": true,
 
     /* Linting */
