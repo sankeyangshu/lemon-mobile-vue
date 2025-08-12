@@ -21,8 +21,14 @@
     "typescriptreact"
   ],
   "prettier.enable": true,
-  "cSpell.words": ["unocss", "VITE"],
-  "i18n-ally.displayLanguage": "zh-CN",
+  "cSpell.words": ["VITE", "iconify", "vueuse"],
+  "i18n-ally.displayLanguage": "zh-cn",
   "i18n-ally.localesPaths": ["src/locales/modules"],
-  "i18n-ally.keystyle": "nested"
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledParsers": ["ts"],
+  "i18n-ally.enabledFrameworks": ["vue"],
+  "i18n-ally.extract.targetPickingStrategy": "most-similar",
+  "i18n-ally.parsers.typescript.compilerOptions": {
+    "moduleResolution": "node"
+  }
 }

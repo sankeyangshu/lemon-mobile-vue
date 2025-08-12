@@ -1,0 +1,4 @@
+{
+  "extends": ["github>sankeyangshu/renovate-config"],
+  "automerge": true
+}

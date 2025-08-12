@@ -3,10 +3,12 @@
     "sankeyangshu.vscode-javascript-typescript-snippets",
     "sankeyangshu.vscode-vue-collection-snippets",
     "dbaeumer.vscode-eslint",
-    "antfu.unocss",
+    "esbenp.prettier-vscode",
     "mikestead.dotenv",
     "editorconfig.editorconfig",
     "usernamehw.errorlens",
-    "lokalise.i18n-ally"
+    "lokalise.i18n-ally",
+    "Vue.volar",
+    "bradlc.vscode-tailwindcss"
   ]
 }
