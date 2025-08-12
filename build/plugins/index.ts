@@ -1,16 +1,11 @@
-import vue from '@vitejs/plugin-vue';
-import UnoCSS from 'unocss/vite';
-import { VantResolver } from 'unplugin-vue-components/resolvers';
-import Components from 'unplugin-vue-components/vite';
-import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
+import tailwindcss from '@tailwindcss/vite';
+import Vue from '@vitejs/plugin-vue';
 import ViteRestart from 'vite-plugin-restart';
-import TsconfigPaths from 'vite-tsconfig-paths';
-import { configCompressPlugin } from './compress';
+import VueDevtools from 'vite-plugin-vue-devtools';
 import { configHtmlPlugin } from './html';
-import { configVueI18nPlugin } from './i18nPlugin';
 import { configInfoPlugin } from './info';
-import { configSvgIconsPlugin } from './svgPlugin';
-import { configAppUpdatePlugin } from './update';
+import { configElegantRouter } from './router';
+import { configUnPlugin } from './unplugin';
 import type { PluginOption } from 'vite';
 
 /**
@@ -20,47 +15,26 @@ import type { PluginOption } from 'vite';
  * @returns vitePlugins[]
  */
 export const createVitePlugins = (viteEnv: Env.ImportMeta, isBuild: boolean) => {
-  const { VITE_USE_MOCK } = viteEnv;
-
   const vitePlugins: (PluginOption | PluginOption[])[] = [
-    vue(),
+    Vue(),
 
-    Components({
-      dts: 'src/types/components.d.ts',
-      resolvers: [VantResolver()],
-      types: [],
-    }),
+    configElegantRouter(),
 
-    // 配置i18n
-    configVueI18nPlugin(),
+    VueDevtools(),
 
-    UnoCSS(),
+    tailwindcss(),
 
-    TsconfigPaths(),
+    ...configUnPlugin(viteEnv),
 
     // 通过这个插件，在修改vite.config.ts文件则不需要重新运行也生效配置
     ViteRestart({
       restart: ['vite.config.ts'],
     }),
 
-    configSvgIconsPlugin(viteEnv, isBuild),
-
     configHtmlPlugin(viteEnv, isBuild),
-
-    configAppUpdatePlugin(viteEnv),
 
     configInfoPlugin(),
   ];
-
-  // 是否开启 mock 服务  https://github.com/pengzhanbo/vite-plugin-mock-dev-server
-  if (VITE_USE_MOCK) {
-    vitePlugins.push(mockDevServerPlugin());
-  }
-
-  if (isBuild) {
-    // 创建打包压缩配置
-    vitePlugins.push(configCompressPlugin(viteEnv));
-  }
 
   return vitePlugins;
 };

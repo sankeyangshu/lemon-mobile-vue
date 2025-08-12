@@ -1,7 +1,6 @@
 import process from 'node:process';
-import autoprefixer from 'autoprefixer';
+import { fileURLToPath } from 'node:url';
 import dayjs from 'dayjs';
-import viewport from 'postcss-mobile-forever';
 import { defineConfig, loadEnv } from 'vite';
 import { createProxy, wrapperEnv } from './build/config';
 import { createVitePlugins } from './build/plugins';
@@ -32,20 +31,11 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
     // 加载插件
     plugins: createVitePlugins(viteEnv, isBuild),
 
-    css: {
-      postcss: {
-        plugins: [
-          autoprefixer(),
-          // https://github.com/wswmsword/postcss-mobile-forever
-          viewport({
-            appSelector: '#app',
-            viewportWidth: 375,
-            maxDisplayWidth: 600,
-            selectorBlackList: ['.ignore', 'keep-px'],
-            rootContainingBlockSelectorList: ['van-tabbar', 'van-popup'],
-            valueBlackList: ['1px solid'],
-          }),
-        ],
+    // 配置路径别名
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '~root': import.meta.dirname,
       },
     },
 

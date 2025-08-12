@@ -1,0 +1,28 @@
+@import './reset.css';
+@import './nprogress.css';
+@import 'tailwindcss';
+
+/* config  tailwind */
+@config '../../tailwind.config.ts';
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility flex-x-center {
+  @apply flex justify-center;
+}
+
+@utility flex-y-center {
+  @apply flex items-center;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
