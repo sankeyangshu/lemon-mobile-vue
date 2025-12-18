@@ -1,152 +1,55 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import process from 'node:process';
 import { red } from 'ansis';
-import { sum } from 'es-toolkit';
-import { isEmpty } from 'es-toolkit/compat';
-
-export function isDevFn(mode: string): boolean {
-  return mode === 'development';
-}
-
-export function isProdFn(mode: string): boolean {
-  return mode === 'production';
-}
-
-export function isTestFn(mode: string): boolean {
-  return mode === 'test';
-}
-
-/**
- * Whether to generate package preview
- */
-export function isReportMode(): boolean {
-  return process.env.VITE_REPORT === 'true';
-}
 
 /**
  * Read all environment variable configuration files to process.env
- * @descCN 读取并处理所有环境变量配置文件 .env
+ * @descCN 读取并处理所有环境变量配置文件
  * @param envConf - A record of environment variables to be processed.
  * @returns An object containing the processed environment variables with appropriate types.
  */
-export function wrapperEnv(envConf: Env.ImportMeta): Env.ImportMeta {
-  const ret: any = {};
+export function wrapperEnv(envConf: Record<string, string>): Env.ImportMeta {
+  const ret: Record<string, any> = {};
 
   for (const envName of Object.keys(envConf)) {
-    // 去除空格
-    let realName = envConf[envName].replace(/\\n/g, '\n');
-    realName = realName === 'true' ? true : realName === 'false' ? false : realName;
+    const envValue = envConf[envName];
 
-    if (envName === 'VITE_PORT') {
+    if (!envValue) {
+      continue;
+    }
+
+    // 去除空格并处理换行
+    let realName: string | number | boolean | [string, string][] = envValue.replace(/\\n/g, '\n');
+
+    // 转换布尔值
+    if (realName === 'true') {
+      realName = true;
+    } else if (realName === 'false') {
+      realName = false;
+    }
+
+    // 转换端口号
+    if (envName === 'VITE_PORT' && typeof realName === 'string') {
       realName = Number(realName);
     }
-    if (envName === 'VITE_PROXY') {
+
+    // 转换 JSON 配置
+    if (envName === 'VITE_PROXY' && typeof realName === 'string') {
       try {
-        realName = JSON.parse(realName);
-      } catch (err) {
+        realName = JSON.parse(realName) as [string, string][];
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
         // eslint-disable-next-line no-console
-        console.log(red(`wrapper vite env error:\n${err}`));
+        console.log(red(`wrapper vite env error:\n${errorMessage}`));
       }
     }
+
     ret[envName] = realName;
-    process.env[envName] = realName;
+
+    // 只有字符串和数字类型的值才能设置到 process.env
+    if (typeof realName === 'string' || typeof realName === 'number') {
+      process.env[envName] = String(realName);
+    }
   }
 
-  return ret;
-}
-
-/**
- * Get user root directory
- * @param dir file path
- */
-export function getRootPath(...dir: string[]) {
-  return path.resolve(process.cwd(), ...dir);
-}
-
-/**
- * Format bytes
- * @descCN 格式化字节
- * @param bytes - The number of bytes to format
- * @returns A string representing the size in a human-readable format
- */
-export function formatBytes(bytes: number): string {
-  const units = ['B', 'KB', 'MB', 'GB'];
-  let size = bytes;
-  let unitIndex = 0;
-
-  while (size >= 1024 && unitIndex < units.length - 1) {
-    size /= 1024;
-    unitIndex++;
-  }
-
-  return `${size.toFixed(2)} ${units[unitIndex]}`;
-}
-
-/**
- * Get the size of the package
- * @descCN 获取包的大小
- * @param options - The options for the package size calculation
- * @param options.folder - The folder to calculate the size of
- * @param options.callback - The callback function to call with the size
- * @param options.format - Whether to format the size
- */
-export function getPackageSize(options: {
-  folder?: string;
-  callback: (size: string | number) => void;
-  format?: boolean;
-}) {
-  const { folder = 'dist', callback, format = true } = options;
-
-  const calculateFolderSize = (folderPath: string, onComplete: (size: number) => void) => {
-    fs.readdir(folderPath, (err: NodeJS.ErrnoException | null, files: string[]) => {
-      if (err) {
-        // eslint-disable-next-line no-console
-        console.log(red(`read dir ${folderPath} error: ${err}`));
-        onComplete(0);
-        return;
-      }
-
-      if (isEmpty(files)) {
-        onComplete(0);
-        return;
-      }
-
-      let count = 0;
-      const fileSizes: number[] = [];
-
-      const checkEnd = (size: number = 0) => {
-        fileSizes.push(size);
-
-        if (++count === files.length) {
-          onComplete(sum(fileSizes));
-        }
-      };
-
-      files.forEach((item: string) => {
-        const itemPath = path.join(folderPath, item);
-
-        fs.stat(itemPath, (error, stats) => {
-          if (error) {
-            // eslint-disable-next-line no-console
-            console.log(red(`get file status ${itemPath} error: ${error}`));
-            checkEnd(0);
-            return;
-          }
-
-          if (stats.isFile()) {
-            checkEnd(stats.size);
-          } else if (stats.isDirectory()) {
-            calculateFolderSize(itemPath, checkEnd);
-          } else {
-            checkEnd(0);
-          }
-        });
-      });
-    });
-  };
-
-  calculateFolderSize(folder, (totalSize) => {
-    callback(format ? formatBytes(totalSize) : totalSize);
-  });
+  return ret as Env.ImportMeta;
 }

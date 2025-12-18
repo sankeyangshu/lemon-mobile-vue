@@ -25,5 +25,3 @@ dist-ssr
 *.sw?
 
 /src/types/components.d.ts
-
-.temp

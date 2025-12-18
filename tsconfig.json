@@ -16,7 +16,7 @@
       "~root/*": ["./*"]
     },
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": ["vite/client"],
     "allowImportingTsExtensions": true,
 
     /* Linting */
@@ -24,27 +24,18 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "importHelpers": true,
     "noEmit": true,
-
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
     "skipLibCheck": true,
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "build/**/*.ts",
-    "build/**/*.d.ts",
-    "mock/**/*.ts",
-    "vite.config.ts"
+    "./**/*.ts",
+    "./**/*.vue",
+    "./**/*.d.ts",
+    "*.config.ts"
   ],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+  "exclude": ["node_modules", "dist"]
 }

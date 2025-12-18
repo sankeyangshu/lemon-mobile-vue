@@ -12,10 +12,12 @@ const httpsRE = /^https:\/\//;
 export function createProxy(list: Env.ImportMeta['VITE_PROXY'] = []) {
   const ret: ProxyTargetList = {};
 
-  if (!list.length) return undefined;
+  if (!Array.isArray(list) || !list.length)
+    return undefined;
 
   for (const [prefix, target] of list) {
     const isHttps = httpsRE.test(target);
+
     // https://github.com/http-party/node-http-proxy#options
     ret[prefix] = {
       target,

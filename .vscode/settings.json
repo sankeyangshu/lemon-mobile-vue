@@ -1,27 +1,54 @@
 {
-  "editor.formatOnSave": true,
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+
+  // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
-  "eslint.useFlatConfig": true,
+
+  // Silent the stylistic rules in your IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off", "fixable": true },
+    { "rule": "format/*", "severity": "off", "fixable": true },
+    { "rule": "*-indent", "severity": "off", "fixable": true },
+    { "rule": "*-spacing", "severity": "off", "fixable": true },
+    { "rule": "*-spaces", "severity": "off", "fixable": true },
+    { "rule": "*-order", "severity": "off", "fixable": true },
+    { "rule": "*-dangle", "severity": "off", "fixable": true },
+    { "rule": "*-newline", "severity": "off", "fixable": true },
+    { "rule": "*quotes", "severity": "off", "fixable": true },
+    { "rule": "*semi", "severity": "off", "fixable": true }
+  ],
+
+  // Enable eslint for all supported languages
   "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "vue",
-    "svelte",
-    "astro",
+    "html",
+    "markdown",
+    "json",
+    "json5",
+    "jsonc",
     "yaml",
     "toml",
-    "json",
-    "jsonc",
-    "json5",
-    "markdown",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
   ],
-  "prettier.enable": true,
-  "cSpell.words": ["VITE", "iconify", "vueuse"],
+
+  // i18n-ally settings
   "i18n-ally.displayLanguage": "zh-cn",
   "i18n-ally.localesPaths": ["src/locales/modules"],
   "i18n-ally.keystyle": "nested",
