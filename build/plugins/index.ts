@@ -1,11 +1,16 @@
 import type { PluginOption } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
-import vue from '@vitejs/plugin-vue';
-import viteRestart from 'vite-plugin-restart';
-import vueDevtools from 'vite-plugin-vue-devtools';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import Tailwindcss from '@tailwindcss/vite';
+import Vue from '@vitejs/plugin-vue';
+import { VantResolver } from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import VueRouter from 'unplugin-vue-router/vite';
+import ViteRestart from 'vite-plugin-restart';
+import VueDevtools from 'vite-plugin-vue-devtools';
+import TsconfigPaths from 'vite-tsconfig-paths';
 import { setupHtmlPluginConfig } from './html';
 import { setupBuildInfoPluginConfig } from './info';
+import { setupUnPluginSvgIconConfig } from './unplugin';
+import { setupVConsolePlugin } from './vconsole';
 
 /**
  * 配置 vite 插件
@@ -13,24 +18,37 @@ import { setupBuildInfoPluginConfig } from './info';
  * @param lastBuildTime 最后编译时间
  * @returns vitePlugins[]
  */
-export function createVitePlugins(_viteEnv: Env.ImportMeta, lastBuildTime: string) {
+export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
-    vue(),
+    VueRouter({
+      dts: 'src/types/typed-router.d.ts',
+    }),
 
-    vueDevtools(),
+    Vue(),
 
-    tailwindcss(),
+    Tailwindcss(),
 
-    tsconfigPaths(),
+    TsconfigPaths(),
+
+    Components({
+      dts: 'src/types/components.d.ts',
+      resolvers: [VantResolver()],
+    }),
+
+    setupUnPluginSvgIconConfig(viteEnv),
+
+    setupVConsolePlugin(viteEnv),
 
     // 通过这个插件，在修改vite.config.ts文件则不需要重新运行也生效配置
-    viteRestart({
+    ViteRestart({
       restart: ['vite.config.ts'],
     }),
 
     setupBuildInfoPluginConfig(),
 
     setupHtmlPluginConfig(lastBuildTime),
+
+    VueDevtools(),
   ];
 
   return vitePlugins;
