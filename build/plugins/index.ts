@@ -4,6 +4,7 @@ import Vue from '@vitejs/plugin-vue';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import VueRouter from 'unplugin-vue-router/vite';
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 import ViteRestart from 'vite-plugin-restart';
 import VueDevtools from 'vite-plugin-vue-devtools';
 import TsconfigPaths from 'vite-tsconfig-paths';
@@ -36,6 +37,8 @@ export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string
     }),
 
     setupUnPluginSvgIconConfig(viteEnv),
+
+    viteEnv.VITE_USE_MOCK && mockDevServerPlugin(),
 
     setupVConsolePlugin(viteEnv),
 

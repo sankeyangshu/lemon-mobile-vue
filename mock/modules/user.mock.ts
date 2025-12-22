@@ -1,5 +1,5 @@
 import { defineMock } from 'vite-plugin-mock-dev-server';
-import { resultError, resultSuccess } from '../util';
+import { resultError, resultSuccess } from '../utils';
 
 interface userType {
   id: number;
@@ -69,7 +69,7 @@ export default defineMock([
     body: ({ body }) => {
       const { username, password } = body;
       const userData = mockUsers.find(
-        (item) => item.username === username && item.password === password
+        (item) => item.username === username && item.password === password,
       );
       if (!userData) {
         return resultError('帐号或密码不正确');

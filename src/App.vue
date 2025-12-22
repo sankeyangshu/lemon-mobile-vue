@@ -1,24 +1,16 @@
 <template>
-  <VanConfigProvider :theme="darkMode" :theme-vars="getThemeVars()" theme-vars-scope="global">
-    <div class="absolute bottom-0 top-0 w-full overflow-hidden">
-      <RouterView />
-    </div>
-  </VanConfigProvider>
+  <van-config-provider :theme="isDark ? 'dark' : 'light'" theme-vars-scope="global">
+    <RouterView />
+  </van-config-provider>
+
+  <VueQueryDevtools />
 </template>
 
 <script setup lang="ts">
+import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 import { storeToRefs } from 'pinia';
 import { useSettingStore } from '@/store/modules/setting';
-import type { ConfigProviderThemeVars } from 'vant';
 
 const settingStore = useSettingStore();
-const { darkMode, themeColor } = storeToRefs(settingStore);
-
-const getThemeVars = (): ConfigProviderThemeVars => {
-  return {
-    primaryColor: themeColor.value,
-  };
-};
+const { isDark } = storeToRefs(settingStore);
 </script>
-
-<style scoped></style>

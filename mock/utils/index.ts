@@ -1,18 +1,17 @@
-import Mock from 'mockjs';
-
 /**
  * 成功返回函数
  * @param result 返回结果
- * @param param1 message 消息
+ * @param options 配置项
+ * @param options.message 消息
  * @returns result
  */
-export function resultSuccess<T = Recordable>(result: T, { message = 'success' } = {}) {
-  return Mock.mock({
-    code: 0,
+export function resultSuccess<T>(result: Record<string, T>, { message = 'success' } = {}) {
+  return {
+    code: 200,
     data: result,
     message,
     timestamp: new Date().getTime(),
-  });
+  };
 }
 
 export function resultError(message = 'Request failed', { code = 500, result = null } = {}) {
