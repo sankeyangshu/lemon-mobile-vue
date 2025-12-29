@@ -5,6 +5,7 @@ import { setupVueQuery } from './plugins/vue-query';
 import { setupRouter } from './router';
 import { setupStore } from './store';
 import './styles/global.css';
+import './plugins/assets';
 
 async function bootstrap() {
   const app = createApp(App);
