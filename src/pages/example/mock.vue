@@ -51,6 +51,13 @@ defineOptions({
   name: 'Mock',
 });
 
+definePage({
+  meta: {
+    title: 'Mock 指南',
+    i18nKey: 'router.mock',
+  },
+});
+
 const { t } = useI18n();
 
 const message = ref('');
