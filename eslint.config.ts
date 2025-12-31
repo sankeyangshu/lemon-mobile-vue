@@ -22,6 +22,7 @@ export default antfu(
     files: ['**/*.vue'],
     rules: {
       'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
+      'vue/no-empty-component-block': 'error',
     },
   },
   {
@@ -29,7 +30,7 @@ export default antfu(
       'better-tailwindcss': pluginTailwindcss,
     },
     rules: {
-    // enable all recommended rules to report an error
+      // enable all recommended rules to report an error
       ...pluginTailwindcss.configs['recommended-error'].rules,
 
       // or configure rules individually

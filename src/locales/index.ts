@@ -51,6 +51,8 @@ export function setLanguage(lang: App.I18n.LangType) {
 
   // 设置 vant 组件语言包
   Locale.use(lang, vantLocales[lang]);
+
+  localStg.setItem('language', lang);
 }
 
 /**

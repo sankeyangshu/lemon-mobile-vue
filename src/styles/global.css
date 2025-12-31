@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './nprogress.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --app-color-primary: #009688;
@@ -10,13 +13,17 @@
 .dark {
   --app-color-primary: #009688;
   --app-color-text: #f5f5f5;
-  --app-color-background: #181818;
+  --app-color-background: #121212;
 }
 
 @theme inline {
   --color-primary: var(--app-color-primary);
   --color-text: var(--app-color-text);
   --color-background: var(--app-color-background);
+  /* 云朵移动动画 */
+  --animate-cloud-move: cloud-move 6s ease infinite;
+  /* 星星闪烁动画 */
+  --animate-star-twinkle: star-twinkle 2s ease infinite;
 }
 
 * {
@@ -29,6 +36,7 @@ html {
 }
 
 body {
+  color: var(--color-text);
   background-color: var(--color-background);
   height: 100%;
   width: 100%;
@@ -47,5 +55,37 @@ body {
   select,
   textarea {
     font-size: 16px !important;
+  }
+}
+
+/* 云朵移动动画 */
+@keyframes cloud-move {
+  0% {
+    transform: translateX(0px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* 星星闪烁动画 */
+@keyframes star-twinkle {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
   }
 }
