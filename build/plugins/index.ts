@@ -22,6 +22,7 @@ import { setupVConsolePlugin } from './vconsole';
 export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     VueRouter({
+      exclude: ['**/components/**/*.*'],
       dts: 'src/types/typed-router.d.ts',
     }),
 

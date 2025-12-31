@@ -1,41 +1,38 @@
+import type { loginDataType, userInfoType } from '@/api/system/user';
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
-import { postLoginAPI, type loginDataType, type userInfoType } from '@/api/System/user';
+import { computed, ref } from 'vue';
+import { postLoginAPI } from '@/api/system/user';
 import { router } from '@/router';
 
 export const useUserStore = defineStore(
-  'userState',
+  'userStore',
   () => {
+    const token = ref(''); // 用户token
     const userInfo = ref<userInfoType | null>(null); // 用户信息
-    const token = ref<string | null>(null); // 用户token
-
-    const setUserInfo = (value: userInfoType) => {
-      userInfo.value = value;
-    };
 
     const setToken = (value: string) => {
       token.value = value;
     };
 
-    const login = async (loginForm: loginDataType) => {
-      const { username, password } = loginForm;
+    const setUserInfo = (value: userInfoType) => {
+      userInfo.value = value;
+    };
 
-      return new Promise<void>((resolve, reject) => {
-        postLoginAPI({ username: username.trim(), password })
-          .then(({ data }) => {
-            setToken(data.token); // 保存用户token
-            setUserInfo(data.user);
-            resolve();
-          })
-          .catch((error) => {
-            reject(error);
-          });
-      });
+    const isLogin = computed(() => {
+      return !!token.value && !!userInfo.value?.id;
+    });
+
+    const login = async (value: loginDataType) => {
+      const { username, password } = value;
+
+      const { token, user } = await postLoginAPI({ username: username.trim(), password });
+      setToken(token);
+      setUserInfo(user);
     };
 
     const logout = (goLogin = false) => {
       userInfo.value = null;
-      token.value = null;
+      token.value = '';
       if (goLogin) {
         router.push('/login');
       }
@@ -43,6 +40,7 @@ export const useUserStore = defineStore(
     return {
       userInfo,
       token,
+      isLogin,
       setUserInfo,
       setToken,
       login,
@@ -51,5 +49,5 @@ export const useUserStore = defineStore(
   },
   {
     persist: true, // 进行持久化存储
-  }
+  },
 );
