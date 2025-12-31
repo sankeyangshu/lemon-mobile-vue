@@ -12,7 +12,7 @@
 一个基于 Vue 3 生态系统的移动 web 应用模板。
 
 <p >
-  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-mobile-vue" alt="license" />
+  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-mobile-vue?label=license" alt="license" />
   <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-mobile-vue" alt="version" />
   <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-mobile-vue" alt="languages" />
   <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-mobile-vue" alt="repo-size" />

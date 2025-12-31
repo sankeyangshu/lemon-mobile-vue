@@ -61,6 +61,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/(auth)/forgot-password': RouteRecordInfo<
+      '/(auth)/forgot-password',
+      '/forgot-password',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/(auth)/sign-in': RouteRecordInfo<
+      '/(auth)/sign-in',
+      '/sign-in',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/(auth)/sign-up': RouteRecordInfo<
+      '/(auth)/sign-up',
+      '/sign-up',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/(authenticated)/settings': RouteRecordInfo<
       '/(authenticated)/settings',
       '/settings',
@@ -85,27 +106,6 @@ declare module 'vue-router/auto-routes' {
     '/(errors)/500': RouteRecordInfo<
       '/(errors)/500',
       '/500',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/(auth)/forgot-password': RouteRecordInfo<
-      '/(auth)/forgot-password',
-      '/forgot-password',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/(auth)/sign-in': RouteRecordInfo<
-      '/(auth)/sign-in',
-      '/sign-in',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/(auth)/sign-up': RouteRecordInfo<
-      '/(auth)/sign-up',
-      '/sign-up',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -192,6 +192,24 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/(auth)/forgot-password.vue': {
+      routes:
+        | '/(auth)/forgot-password'
+      views:
+        | never
+    }
+    'src/pages/(auth)/sign-in.vue': {
+      routes:
+        | '/(auth)/sign-in'
+      views:
+        | never
+    }
+    'src/pages/(auth)/sign-up.vue': {
+      routes:
+        | '/(auth)/sign-up'
+      views:
+        | never
+    }
     'src/pages/(authenticated)/settings.vue': {
       routes:
         | '/(authenticated)/settings'
@@ -213,24 +231,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/(errors)/500.vue': {
       routes:
         | '/(errors)/500'
-      views:
-        | never
-    }
-    'src/pages/(auth)/forgot-password.vue': {
-      routes:
-        | '/(auth)/forgot-password'
-      views:
-        | never
-    }
-    'src/pages/(auth)/sign-in.vue': {
-      routes:
-        | '/(auth)/sign-in'
-      views:
-        | never
-    }
-    'src/pages/(auth)/sign-up.vue': {
-      routes:
-        | '/(auth)/sign-up'
       views:
         | never
     }
