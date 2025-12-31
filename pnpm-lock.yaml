@@ -17,6 +17,9 @@ importers:
       '@tanstack/vue-query-devtools':
         specifier: ^6.1.3
         version: 6.1.3(@tanstack/vue-query@5.92.5(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
+      '@tanstack/vue-virtual':
+        specifier: ^3.13.14
+        version: 3.13.14(vue@3.5.26(typescript@5.9.3))
       '@vueuse/core':
         specifier: ^14.1.0
         version: 14.1.0(vue@3.5.26(typescript@5.9.3))
@@ -1103,6 +1106,9 @@ packages:
   '@tanstack/query-devtools@5.92.0':
     resolution: {integrity: sha512-N8D27KH1vEpVacvZgJL27xC6yPFUy0Zkezn5gnB3L3gRCxlDeSuiya7fKge8Y91uMTnC8aSxBQhcK6ocY7alpQ==}
 
+  '@tanstack/virtual-core@3.13.14':
+    resolution: {integrity: sha512-b5Uvd8J2dc7ICeX9SRb/wkCxWk7pUwN214eEPAQsqrsktSKTCmyLxOQWSMgogBByXclZeAdgZ3k4o0fIYUIBqQ==}
+
   '@tanstack/vue-query-devtools@6.1.3':
     resolution: {integrity: sha512-26g3qyNCnS+7Vguo/R/X3upcrvL+AU6Gn+lMQD7mT/1rl546aq+bP6sBNm1Xi5QFN+X1i29VNG9fI+WhcMXFDQ==}
     peerDependencies:
@@ -1117,6 +1123,11 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
+
+  '@tanstack/vue-virtual@3.13.14':
+    resolution: {integrity: sha512-dLKQCWj0uu6Rc1OsTGiClpH75hyf92MvJ9YALAzWdblwImSFnxfXD0mu8yOI7PlxiDAcDA5Pq0Q47YvADAfyfg==}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -4892,6 +4903,8 @@ snapshots:
 
   '@tanstack/query-devtools@5.92.0': {}
 
+  '@tanstack/virtual-core@3.13.14': {}
+
   '@tanstack/vue-query-devtools@6.1.3(@tanstack/vue-query@5.92.5(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
       '@tanstack/query-devtools': 5.92.0
@@ -4905,6 +4918,11 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.26(typescript@5.9.3)
       vue-demi: 0.14.10(vue@3.5.26(typescript@5.9.3))
+
+  '@tanstack/vue-virtual@3.13.14(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      '@tanstack/virtual-core': 3.13.14
+      vue: 3.5.26(typescript@5.9.3)
 
   '@trysound/sax@0.2.0': {}
 
