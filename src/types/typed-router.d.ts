@@ -82,6 +82,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/(authenticated)/settings': RouteRecordInfo<
+      '/(authenticated)/settings',
+      '/settings',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/(errors)/403': RouteRecordInfo<
       '/(errors)/403',
       '/403',
@@ -103,18 +110,18 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/(authenticated)/settings': RouteRecordInfo<
-      '/(authenticated)/settings',
-      '/settings',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/[...path]': RouteRecordInfo<
       '/[...path]',
       '/:path(.*)',
       { path: ParamValue<true> },
       { path: ParamValue<false> },
+      | never
+    >,
+    '/example/echarts': RouteRecordInfo<
+      '/example/echarts',
+      '/example/echarts',
+      Record<never, never>,
+      Record<never, never>,
       | never
     >,
     '/example/icon': RouteRecordInfo<
@@ -196,6 +203,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/(authenticated)/settings.vue': {
+      routes:
+        | '/(authenticated)/settings'
+      views:
+        | never
+    }
     'src/pages/(errors)/403.vue': {
       routes:
         | '/(errors)/403'
@@ -214,15 +227,15 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/(authenticated)/settings.vue': {
-      routes:
-        | '/(authenticated)/settings'
-      views:
-        | never
-    }
     'src/pages/[...path].vue': {
       routes:
         | '/[...path]'
+      views:
+        | never
+    }
+    'src/pages/example/echarts.vue': {
+      routes:
+        | '/example/echarts'
       views:
         | never
     }
