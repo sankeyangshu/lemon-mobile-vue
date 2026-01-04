@@ -46,7 +46,8 @@
             >{{ $t('system.loading') }}</span>
           </div>
           <span
-            v-else class="
+            v-else
+            class="
               text-gray-400
               dark:text-gray-500
             "

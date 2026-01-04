@@ -3,8 +3,18 @@
   <RouterView />
 
   <!-- 底部导航栏 -->
-  <van-tabbar route fixed placeholder safe-area-inset-bottom>
-    <van-tabbar-item v-for="item in tabbarList" :key="item.name" replace :to="item.path">
+  <van-tabbar
+    route
+    fixed
+    placeholder
+    safe-area-inset-bottom
+  >
+    <van-tabbar-item
+      v-for="item in tabbarList"
+      :key="item.name"
+      replace
+      :to="item.path"
+    >
       <template #icon="{ active }">
         <SvgIcon :icon="item.icon" class="text-2xl" :class="active ? 'text-primary' : ''" />
       </template>

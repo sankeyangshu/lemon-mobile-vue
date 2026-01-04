@@ -24,7 +24,12 @@
         :style="{ backgroundColor: PRIMARY_COLORS[color as PrimaryColor] }"
         @click="onChangeThemeColor(color as PrimaryColor)"
       >
-        <van-icon v-if="primaryColor === color" name="success" color="white" size="24" />
+        <van-icon
+          v-if="primaryColor === color"
+          name="success"
+          color="white"
+          size="24"
+        />
       </div>
     </div>
   </div>

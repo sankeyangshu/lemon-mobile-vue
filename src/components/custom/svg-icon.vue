@@ -1,6 +1,16 @@
 <template>
-  <LocalSvgIcon v-if="isNotNil(localIcon)" :name="localIcon" :class="className" :style="style" />
-  <Icon v-else-if="isNotNil(icon)" :icon="icon" :class="className" :style="style" />
+  <LocalSvgIcon
+    v-if="isNotNil(localIcon)"
+    :name="localIcon"
+    :class="className"
+    :style="style"
+  />
+  <Icon
+    v-else-if="isNotNil(icon)"
+    :icon="icon"
+    :class="className"
+    :style="style"
+  />
   <span v-else>null icon</span>
 </template>
 

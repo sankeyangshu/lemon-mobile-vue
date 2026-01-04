@@ -20,7 +20,12 @@
       </template>
     </van-cell-group>
 
-    <van-popup v-model:show="showLangPicker" destroy-on-close round position="bottom">
+    <van-popup
+      v-model:show="showLangPicker"
+      destroy-on-close
+      round
+      position="bottom"
+    >
       <van-picker
         v-model="currentLanguage.value"
         :columns="localeOptions"

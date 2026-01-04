@@ -69,7 +69,12 @@
         ]"
       />
 
-      <van-button round block type="primary" native-type="submit">
+      <van-button
+        round
+        block
+        type="primary"
+        native-type="submit"
+      >
         {{ $t('login.confirmReset') }}
       </van-button>
     </van-form>

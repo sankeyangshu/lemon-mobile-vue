@@ -23,6 +23,13 @@ export default antfu(
     rules: {
       'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
       'vue/no-empty-component-block': 'error',
+      'vue/max-attributes-per-line': [
+        'error',
+        {
+          singleline: 3,
+          multiline: 1,
+        },
+      ],
     },
   },
   {

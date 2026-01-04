@@ -14,7 +14,12 @@
       </div>
     </div>
     <div class="flex">
-      <SvgIcon v-for="item in iconifyList" :key="item" :icon="item" class="mr-2.5 text-2xl" />
+      <SvgIcon
+        v-for="item in iconifyList"
+        :key="item"
+        :icon="item"
+        class="mr-2.5 text-2xl"
+      />
     </div>
 
     <div class="mt-4 mb-3 border-l-3 border-solid border-l-primary pl-3 leading-7">
@@ -23,7 +28,12 @@
       </div>
     </div>
     <div class="flex">
-      <SvgIcon v-for="item in svgList" :key="item" :local-icon="item" class="mr-2.5 text-2xl" />
+      <SvgIcon
+        v-for="item in svgList"
+        :key="item"
+        :local-icon="item"
+        class="mr-2.5 text-2xl"
+      />
     </div>
   </div>
 </template>

@@ -13,8 +13,10 @@
     </div>
 
     <van-form
-      :model="loginForm" validate-trigger="onSubmit"
-      class="grid w-full gap-y-4" @submit="fetchLogin"
+      :model="loginForm"
+      validate-trigger="onSubmit"
+      class="grid w-full gap-y-4"
+      @submit="fetchLogin"
     >
       <van-field
         v-model="loginForm.username"
@@ -32,7 +34,13 @@
         :rules="[{ required: true, message: $t('login.passwordError') }]"
       />
 
-      <van-button :loading="isPending" round block type="primary" native-type="submit">
+      <van-button
+        :loading="isPending"
+        round
+        block
+        type="primary"
+        native-type="submit"
+      >
         {{ $t('login.login') }}
       </van-button>
     </van-form>

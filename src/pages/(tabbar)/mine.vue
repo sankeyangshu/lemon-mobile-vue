@@ -55,7 +55,12 @@
           <SvgIcon icon="mdi:cellphone-settings-variant" class="mr-2.5 h-6 text-lg leading-6" />
         </template>
       </van-cell>
-      <van-cell v-if="isLogin" :title="$t('mine.logout')" is-link @click="onClickLogout">
+      <van-cell
+        v-if="isLogin"
+        :title="$t('mine.logout')"
+        is-link
+        @click="onClickLogout"
+      >
         <template #icon>
           <SvgIcon icon="mdi:logout" class="mr-2.5 h-6 text-lg leading-6" />
         </template>

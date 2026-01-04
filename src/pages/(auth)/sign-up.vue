@@ -44,7 +44,12 @@
         ]"
       />
 
-      <van-button round block type="primary" native-type="submit">
+      <van-button
+        round
+        block
+        type="primary"
+        native-type="submit"
+      >
         {{ $t('login.register') }}
       </van-button>
     </van-form>
