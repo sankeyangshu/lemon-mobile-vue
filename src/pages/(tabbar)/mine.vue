@@ -38,7 +38,7 @@
     <van-cell-group inset>
       <van-cell :title="$t('router.themeSetting')" is-link to="/settings">
         <template #icon>
-          <SvgIcon icon="mdi:palette" class="mr-2.5 h-6 text-lg leading-6" />
+          <SvgIcon icon="mdi:palette" class="mr-2.5 h-6 text-lg/6" />
         </template>
       </van-cell>
       <van-cell
@@ -47,12 +47,12 @@
         @click="onClickOpenDocs"
       >
         <template #icon>
-          <SvgIcon icon="mdi:book-open-variant" class="mr-2.5 h-6 text-lg leading-6" />
+          <SvgIcon icon="mdi:book-open-variant" class="mr-2.5 h-6 text-lg/6" />
         </template>
       </van-cell>
       <van-cell :title="$t('mine.systemVersion')" :value="`v${version}`">
         <template #icon>
-          <SvgIcon icon="mdi:cellphone-settings-variant" class="mr-2.5 h-6 text-lg leading-6" />
+          <SvgIcon icon="mdi:cellphone-settings-variant" class="mr-2.5 h-6 text-lg/6" />
         </template>
       </van-cell>
       <van-cell
@@ -62,7 +62,7 @@
         @click="onClickLogout"
       >
         <template #icon>
-          <SvgIcon icon="mdi:logout" class="mr-2.5 h-6 text-lg leading-6" />
+          <SvgIcon icon="mdi:logout" class="mr-2.5 h-6 text-lg/6" />
         </template>
       </van-cell>
     </van-cell-group>

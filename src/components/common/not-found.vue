@@ -7,7 +7,7 @@
           class="animate-in duration-320 ease-in fade-in slide-in-from-bottom-[120px]"
           style="animation-delay: 50ms; animation-fill-mode: both;"
         >
-          <div class="mb-5 text-xl leading-10 font-bold text-primary">
+          <div class="mb-5 text-xl/10 font-bold text-primary">
             {{ $t('system.notFound') }}
           </div>
         </div>
@@ -15,7 +15,7 @@
           class="animate-in duration-320 ease-in fade-in slide-in-from-bottom-[120px]"
           style="animation-delay: 100ms; animation-fill-mode: both;"
         >
-          <div class="mb-7.5 text-sm leading-5 text-gray-500">
+          <div class="mb-7.5 text-sm/5 text-gray-500">
             {{ $t('system.checkUrl') }}
           </div>
         </div>

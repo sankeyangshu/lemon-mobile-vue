@@ -67,7 +67,7 @@
               <img
                 :src="articles[virtualItem.index].coverImage"
                 :alt="articles[virtualItem.index].title"
-                class="h-full w-full object-cover"
+                class="size-full object-cover"
               >
             </div>
 

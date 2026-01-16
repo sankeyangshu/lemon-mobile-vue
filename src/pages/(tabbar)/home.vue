@@ -11,7 +11,7 @@
         <div class="font-bold">Lemon-Mobile-Vue</div>
         <SvgIcon icon="mdi:github" class="ml-2 text-2xl" />
       </a>
-      <div class="mt-3 mb-1.5 text-center text-sm leading-6">
+      <div class="mt-3 mb-1.5 text-center text-sm/6">
         {{ t('home.info') }}
       </div>
     </div>
