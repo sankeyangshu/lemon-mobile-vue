@@ -1,9 +1,7 @@
 {
   "recommendations": [
     "sankeyangshu.vscode-javascript-typescript-snippets",
-    "sankeyangshu.vscode-vue-collection-snippets",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "mikestead.dotenv",
     "editorconfig.editorconfig",
     "usernamehw.errorlens",
