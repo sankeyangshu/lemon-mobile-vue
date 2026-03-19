@@ -23,9 +23,9 @@ if (import.meta.hot) {
  * @param app vue实例
  */
 export async function setupRouter(app: App<Element>) {
-  app.use(router);
-
   createRouterGuard(router);
+
+  app.use(router);
 
   await router.isReady();
 }

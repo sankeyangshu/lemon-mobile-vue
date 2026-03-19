@@ -10,10 +10,8 @@ NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
  * @param router - Router instance
  */
 export function createProgressGuard(router: Router) {
-  router.beforeEach((_to, _from, next) => {
+  router.beforeEach(() => {
     NProgress.start();
-
-    next();
   });
 
   router.afterEach(() => {
