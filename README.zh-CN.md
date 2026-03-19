@@ -27,7 +27,7 @@
 
 ## 简介
 
-🚀🚀🚀 **lemon-mobile-vue** 使用了最新的`Vue3.5`、`Vite7`、`TanStack Query`、`Vant`、`Pinia`、`Typescript`、`Tailwindcss V4`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
+🚀🚀🚀 **lemon-mobile-vue** 使用了最新的`Vue3.5`、`Vite8`、`TanStack Query`、`Vant`、`Pinia`、`Typescript`、`Tailwindcss V4`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
 
 你可以在此之上直接开发你的业务代码！希望你能喜欢。👋👋👋
 
@@ -46,9 +46,9 @@
 ## 项目功能
 
 - ⚡️ 使用 `Vue3.5` + `TypeScript` 开发，单文件组件**＜ script setup ＞**
-- ✨ 采用 `Vite7` 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
+- ✨ 采用 `Vite8` 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
 - 🍕 整个项目集成了 `TypeScript`
-- 🚦 使用 `Vue Router` 作为路由管理方案，`Unplugin Vue Router` 提供类型安全的文件式路由系统
+- 🚦 使用 `Vue Router` 作为路由管理方案，提供类型安全的文件式路由系统
 - 🔄 使用 `TanStack Query` 进行服务端状态管理，简化数据获取和缓存
 - 🍍 使用 `Pinia` 替代 `Vuex`，轻量、简单、易用，集成 `Pinia` 持久化插件
 - 📦 组件自动化加载
@@ -76,7 +76,6 @@
 - [Pinia](https://pinia.vuejs.org/) - 熟悉 `Pinia` 特性
 - [TypeScript](https://www.typescriptlang.org/) - 熟悉 `TypeScript` 基本语法
 - [Vue-Router](https://router.vuejs.org/) - 熟悉 `Vue-Router` 基本使用
-- [Unplugin Vue Router](https://uvr.esm.is/) - 熟悉文件式路由的使用
 - [Icones](https://icones.js.org/) - 本项目推荐图标库，当然你也可以使用 `SVG Icon`
 - [Tailwind CSS](https://tailwindcss.com/) - 高性能且极具灵活性的即时原子化 CSS 引擎
 - [Vant](https://github.com/youzan/vant) - 移动端 Vue 组件库
@@ -103,7 +102,6 @@
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
 - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) - 多合一的 I18n 支持
 - [JavaScript and TypeScript Vscode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-javascript-typescript-snippets) - JavaScript 和 TypeScript 代码片段
-- [Vue Collection Vscode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-vue-collection-snippets) - 提供 Vue 2/3 代码片段
 
 ## 安装和使用
 

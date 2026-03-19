@@ -27,7 +27,7 @@ A mobile web apps template based on the Vue 3 ecosystem.
 
 ## Introduction
 
-🚀🚀🚀 **lemon-mobile-vue** is built using the latest mainstream technologies, including `Vue 3.5`, `Vite 7`, `TanStack Query`, `Vant`, `Pinia`, `TypeScript`, and `Tailwind CSS V4`. It integrates features like `Dark Mode`, system theme colors, and Mock data support.
+🚀🚀🚀 **lemon-mobile-vue** is built using the latest mainstream technologies, including `Vue3.5`, `Vite8`, `TanStack Query`, `Vant`, `Pinia`, `TypeScript`, and `Tailwind CSS V4`. It integrates features like `Dark Mode`, system theme colors, and Mock data support.
 
 You can directly start developing your business logic on top of this template! Hope you enjoy it. 👋👋👋
 
@@ -46,9 +46,9 @@ You can directly start developing your business logic on top of this template! H
 ## Features
 
 - ⚡️ Developed with `Vue 3.5` + `TypeScript` using **＜script setup＞** single-file components
-- ✨ Uses `Vite 7` as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
+- ✨ Uses `Vite 8` as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
 - 🍕 Fully integrates `TypeScript`
-- 🚦 Uses `Vue Router` for routing management, with `Unplugin Vue Router` providing a type-safe file-based routing system
+- 🚦 Uses `Vue Router` for routing management, providing a type-safe file-based routing system
 - 🔄 Uses `TanStack Query` for server state management, simplifying data fetching and caching
 - 🍍 Replaces `Vuex` with `Pinia`, offering lightweight, simple, and easy-to-use state management, with Pinia persistence plugin integrated
 - 📦 Automatic component loading
@@ -76,7 +76,6 @@ Familiarity with the following concepts will be very helpful when using this pro
 - [Pinia](https://pinia.vuejs.org/) - Familiarize yourself with `Pinia` features
 - [TypeScript](https://www.typescriptlang.org/) - Familiarize yourself with `TypeScript` basic syntax
 - [Vue Router](https://router.vuejs.org/) - Familiarize yourself with `Vue Router` basic usage
-- [Unplugin Vue Router](https://uvr.esm.is/) - Familiarize yourself with file-based routing usage
 - [Icones](https://icones.js.org/) - Recommended icon library for this project, though you can also use `SVG Icon`
 - [Tailwind CSS](https://tailwindcss.com/) - High-performance and highly flexible instant atomic CSS engine
 - [Vant](https://github.com/youzan/vant) - Mobile Vue component library
@@ -103,7 +102,6 @@ If you use [VSCode](https://code.visualstudio.com/) (recommended), install the f
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Script code linting
 - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) - All-in-one i18n support
 - [JavaScript and TypeScript VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-javascript-typescript-snippets) - JavaScript and TypeScript code snippets
-- [Vue Collection VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-vue-collection-snippets) - Provides Vue 2/3 code snippets
 
 ## Usage
 
