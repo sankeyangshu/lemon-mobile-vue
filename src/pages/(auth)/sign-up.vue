@@ -54,7 +54,7 @@
       </van-button>
     </van-form>
 
-    <div class="fixed right-5 bottom-10 left-5 mx-5 flex h-5 items-center justify-center text-sm/5">
+    <div class="fixed inset-x-5 bottom-10 mx-5 flex h-5 items-center justify-center text-sm/5">
       <label class="flex cursor-pointer items-center">
         <van-checkbox v-model="isAgreeLicense" icon-size="16px" class="mr-2" />
         <span>

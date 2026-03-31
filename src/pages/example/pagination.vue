@@ -215,7 +215,7 @@ watch(
       return;
     }
 
-    const lastItem = virtualItems[virtualItems.length - 1];
+    const lastItem = virtualItems.at(-1);
 
     if (!isNotNil(lastItem)) {
       return;

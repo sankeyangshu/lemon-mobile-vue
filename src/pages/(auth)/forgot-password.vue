@@ -107,6 +107,7 @@ const resetForm = reactive({
  * 判断是否是合法手机号
  */
 function validPhone(phone: string) {
+  // eslint-disable-next-line e18e/prefer-static-regex
   const reg = /^(?:13\d|14[014-9]|15[0-35-9]|16[2567]|17[0-8]|18\d|19[0-35-9])\d{8}$/;
   return reg.test(phone);
 }
